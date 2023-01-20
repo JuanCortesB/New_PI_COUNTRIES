@@ -8,6 +8,7 @@ const CreateActivity = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const countries= useSelector(state =>state.addCountries)
+    const [errors, setErrors]= useState({})
 
     const[input, setInput] = useState({
         name:"",
@@ -28,6 +29,10 @@ const CreateActivity = () => {
             
         })
         console.log(input)
+        setErrors(validacion({
+            ...input,
+            [e.target.name]: e.target.value
+        }))
     }
 
     function handleSelect(e){
@@ -58,6 +63,10 @@ const CreateActivity = () => {
         let errors ={}
         if(!input.name)
         errors.name = "Debe ingresar un nombre"
+        else if(!/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(input.name)){
+            errors.name = "Debe ingresar un nombre valido"
+        }
+        return errors
     }
     return(
         <div>
@@ -66,7 +75,14 @@ const CreateActivity = () => {
             <form onSubmit={e =>handleSubmit(e)}>
                 <div>
                     <label>Nombre: </label>
-                    <input placeholder="escribe tu actividad..." type="text" value={input.name} name="name" onChange={(e) => handleChange(e)}/>
+
+                    <input placeholder="escribe tu actividad..."
+                     type="text" value={input.name} 
+                     name="name" 
+                     onChange={(e) => handleChange(e)}/>
+                     
+                     {errors.name && ( <p className="error">{errors.name}</p>)}
+
                 </div>
                 <div>
                     <label>Dificultad: </label>
