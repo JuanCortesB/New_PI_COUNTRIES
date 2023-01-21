@@ -6,6 +6,7 @@ import  {getAllCountries, filterByCont, orderByName,orderByPopulation}  from "..
 import CardCountries from "./CardCountries";
 import Paginado from "./Paginado";
 import SearchBar from "./SearchBar";
+import NavBar from "./NavBar";
 import styles from "../Styles/home.module.css"
  
 
@@ -59,14 +60,16 @@ const Home = () =>{
         setOrderName(e.target.value)
     }
     return(
-     
         
         
-        <div className={styles.container}>
         <div >
-            <h3>Soy el Home</h3>
-             <button onClick={e => {handleClick(e)}}>Recargar Paises</button>
-        </div>
+        <container>
+        <NavBar/>
+
+        </container>
+       
+
+             <button  onClick={e => {handleClick(e)}}>Recargar Paises</button>
         <div>
         <select id="order" onChange={e => handleOrderName(e)}>
             <option> Orden por nombre</option>
@@ -105,7 +108,7 @@ const Home = () =>{
         estadoCountries={estadoCountries.length}
         paginado={paginado}/>
 
-        <SearchBar/>
+       
             <div  className={styles.main}>
                 {currentCountries.length > 0 ? currentCountries.map(c =>  
                    /// <Link key={c.id} to={`${c.id}`}>
