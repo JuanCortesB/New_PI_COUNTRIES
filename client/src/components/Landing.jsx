@@ -12,11 +12,11 @@ import styles from "../Styles/landing.module.css"
        <div className={styles.content}>
           
         
-        <h1>Welcome</h1>
-        <p>Travel around the world</p>
+        <h1 className={styles.h1landing}>Welcome</h1>
+        <pc className={styles.planding}>Travel around the world</pc>
             
             <Link to="/home">
-               <button>
+               <button className={styles.landingbutton}>
                <span></span>
                <span></span>
                <span></span>

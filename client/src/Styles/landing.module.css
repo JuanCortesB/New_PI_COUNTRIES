@@ -4,12 +4,12 @@
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
   }
 
-  h1{
+  .h1landing{
     font-size: 80px ;
   }
-  p {
+  .planding {
     font-size: 25px;
-    margin-bottom: 10px;
+    margin-bottom: 18px;
   }
 
   .container{
@@ -42,64 +42,75 @@
     background-color: rgba(0,0,0,.5);
   }
 
- button{
-    width: 150px;
-    height: 50px;
+  .landingbutton {
     position: relative;
-    padding: 10px 15px;
-    border: none;
-    outline:none;
-    background-color: #E21223;
-    /* background-color:  rgba(170, 140, 140, 1);  */
-    color: #dcc2e4;
-    cursor: pointer;
-    transition:  0.5s;
-    overflow: hidden;
-    font-size: 20px;
-    border-radius: 15px ;
- }
-
- button:hover{
+    padding: 14px 45px;
+    border-radius: 7px;
+    border: 1px solid rgb(255, 61, 61);
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: transparent;
     color: #fff;
- }
- button span{
+    overflow: hidden;
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+  }
+  
+  .landingbutton:hover {
+    background: rgb(255, 61, 87);
+    box-shadow: 0 0 30px 5px rgba(236, 0, 0, 0.815);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+  }
+  
+  .landingbutton:hover::before {
+    -webkit-animation: sh02 0.5s 0s linear;
+    -moz-animation: sh02 0.5s 0s linear;
+    animation: sh02 0.5s 0s linear;
+  }
+  
+  .landingbutton::before {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 86%;
     position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
     background: #fff;
-    transition: .5s;
- }
- button span:nth-child(1){
-    width: 100%;
-    height: 1px;
-    top:0;
-    left: -100%;
- }
- button span:nth-child(2){
-    width: 100%;
-    height: 1px;
-    bottom:0;
-    right: -100%;
- }
- button span:nth-child(3){
-    width: 1px;
-    height: 100%;
-    bottom:-100%;
-    left: 0;
- }
- button span:nth-child(4){
-    width: 1px;
-    height: 100%;
-    top:-100%;
-    right: 0;
- }
- button:hover span:nth-child(1){
-    left: 0;
- }
- button:hover span:nth-child(2){
-    right: 0;
- }
- button:hover span:nth-child(3){
-    bottom: 0;
- }
- button:hover span:nth-child(4){
-    top: 0;
- }
+    box-shadow: 0 0 50px 30px #fff;
+    -webkit-transform: skewX(-20deg);
+    -moz-transform: skewX(-20deg);
+    -ms-transform: skewX(-20deg);
+    -o-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+  }
+  
+  @keyframes sh02 {
+    from {
+      opacity: 0;
+      left: 0%;
+    }
+  
+    50% {
+      opacity: 1;
+    }
+  
+    to {
+      opacity: 0;
+      left: 100%;
+    }
+  }
+  
+  .landingbutton:active {
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    -moz-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+  }
