@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { Link, useHistory } from "react-router-dom";
 import {postActivities, getAllCountries} from "../redux/actions"
 import { useDispatch, useSelector } from "react-redux";
+import styles from "../Styles/activity.module.css"
 
 
 const CreateActivity = () => {
@@ -69,14 +70,19 @@ const CreateActivity = () => {
         return errors
     }
     return(
-        <div>
-            <Link to="/home"> <butom>Home</butom></Link>
-            <h1>Crea tu actividad deportiva</h1>
-            <form onSubmit={e =>handleSubmit(e)}>
+        <div className={styles.container}>
+            
+            <Link to="/home">
+             <button className={styles.buttonHome}>Home</button>
+             </Link>
+            
+
+            <h4>Crea tu actividad deportiva</h4>
+            <form onSubmit={e =>handleSubmit(e)} className={styles.form}>
                 <div>
                     <label>Nombre: </label>
 
-                    <input placeholder="escribe tu actividad..."
+                    <input className={styles.inputs} placeholder="escribe tu actividad..."
                      type="text" value={input.name} 
                      name="name" 
                      onChange={(e) => handleChange(e)}/>
@@ -86,7 +92,7 @@ const CreateActivity = () => {
                 </div>
                 <div>
                     <label>Dificultad: </label>
-                    <select name="difficulty" onChange={(e)=>handleChange(e)}>
+                    <select className={styles.inputs} name="difficulty" onChange={(e)=>handleChange(e)}>
                     <option>Select difficulty</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -99,11 +105,11 @@ const CreateActivity = () => {
                 </div>
                 <div>
                     <label>Duracion: </label>
-                    <input type="text" value={input.duration} name="duration" onChange={(e) => handleChange(e)}/>
+                    <input className={styles.inputs} type="text" value={input.duration} name="duration" onChange={(e) => handleChange(e)}/>
                 </div>
                 <div>
                     <label>Temporada:</label>
-                    <select name="season" onChange={(e) => handleChange(e)}>
+                    <select className={styles.inputs} name="season" onChange={(e) => handleChange(e)}>
                     <option>Elije temporada</option>
                     <option value="primavera">Primavera</option>
                     <option value="otoño">Otoño</option>
@@ -114,14 +120,16 @@ const CreateActivity = () => {
                 </div>
              
                     <label>Country:</label>
-                    <select onChange={(e) => handleSelect(e)}>
+                    <select className={styles.inputs} onChange={(e) => handleSelect(e)}>
                         {countries.map( (c) =>(
                             <option value={c.name}>{c.name}</option>
                         ))}
                     </select>
                     <ul><li>{input.countries.map(e => e + " ,")}</li></ul>
-                
-                <button type="submit">Crear Actividad</button>
+                <div className={styles.createButton}>
+
+                <button  type="submit">Crear Actividad</button>
+                </div>
             </form>
         </div>
     

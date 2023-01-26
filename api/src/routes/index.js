@@ -40,20 +40,20 @@ router.get("/", async(req , res) =>{
 //     //validar los datos
 //     //agregar el objeto a mi base de datos (llanadi asincronico)
 //     //resoibder que  se creo
-// router.get('/:id', async (req, res) => {
-//     try {
-//         const id = req.params.id.toUpperCase();
-//         if(id){
-//         const countryById = await Country.findByPk(id, {
-//             include: Activity
-//             });
-//             res.send(countryById)
-//         }
+router.get('/countries/:id', async (req, res) => {
+    try {
+        const id = req.params.id.toUpperCase();
+        if(id){
+        const countryById = await Country.findByPk(id, {
+            include: Activity
+            });
+            res.send(countryById)
+        }
 
-//     } catch (error) {
-//         res.status(404).send(error)
-//     }
-// })
+    } catch (error) {
+        res.status(404).send(error)
+    }
+})
 
 
 router.post("/activities", async (req, res) => {

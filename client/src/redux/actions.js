@@ -93,6 +93,24 @@ export function filterActivities(payload){
     }
 }
 
+export const getCountriesById = async (id) =>{
+    return  async function (dispatch){
+        try {
+            
+            const serverId = await axios.get(`http://localhost:3001/countries/${id}`)
+           
+            return dispatch({
+                type: "GET_COUNTRIESID",
+                payload: serverId.data
+            })
+        } catch (error) {
+            dispatch({
+                type: "ERROR",
+                payload: error
+            })
+        }
+    }
+}
 
 // export const getCountriesByName = async (name) =>{
 //     return  async function (dispatch){
@@ -103,24 +121,6 @@ export function filterActivities(payload){
 //             dispatch({
 //                 type: GET_COUNTRIESNAME,
 //                 payload: countriesName
-//             })
-//         } catch (error) {
-//             dispatch({
-//                 type: ERROR,
-//                 payload: error
-//             })
-//         }
-//     }
-// }
-// export const getCountriesById = async (id) =>{
-//     return  async function (dispatch){
-//         try {
-            
-//             const serverId = await axios.get(`http://localhost:3001/${id}`)
-//             const countriesID = serverId.data
-//             dispatch({
-//                 type: GET_COUNTRIESID,
-//                 payload: countriesID
 //             })
 //         } catch (error) {
 //             dispatch({

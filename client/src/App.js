@@ -5,6 +5,8 @@ import Home from './components/Home';
 import Landing from './components/Landing';
 import { Route} from "react-router-dom";
 import CreateActivity from './components/CreateActivity';
+import Details from './components/Details';
+
 function App() {
   return (
     
@@ -19,6 +21,10 @@ function App() {
       <Home/>
       
     </Route> 
+    
+    <Route  path="/countries/:id"  >
+    <Details  />
+    </Route>
     <Route path="/activities">
 
     <CreateActivity/>

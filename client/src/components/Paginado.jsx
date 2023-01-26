@@ -5,6 +5,8 @@ import styles from './Paginado.module.css'
 
 
 export default function Paginado ({countriesPerPage,estadoCountries, paginado}) {
+
+    
     
     const pageNumbers = []
 
@@ -15,6 +17,8 @@ export default function Paginado ({countriesPerPage,estadoCountries, paginado}) 
         pageNumbers.push(i)
         
     }
+
+
     return (
         <nav className={styles.numBar}>
           <div className={styles.numContainer}>
